@@ -9,3 +9,5 @@
 + content
 + date
 3. __반응 정보 테이블__
++ view
++ like
