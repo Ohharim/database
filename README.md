@@ -11,6 +11,11 @@
 9. __쪽지__ 는 _쪽지 번호_, _발신 아이디_, _수신 아이디_, _내용_, _날짜_ 정보 를 유지해야 한다.
 10. 쪽지는 쪽지 번호로 식별한다.
 
+### E-R 다이어그램
+![Untitled Diagram drawio (1)](https://user-images.githubusercontent.com/81346296/169706047-492bd5c1-52ff-4192-ae27-c22928cd50e6.png)
+### 물리적 스키마
+![Untitled Diagram drawio (2)](https://user-images.githubusercontent.com/81346296/169706072-faf5e309-33ba-45f3-807b-4417a6287e9c.png)
+
 ### DB 설계
 1. __회원 정보 테이블__
 + id
@@ -36,4 +41,45 @@
 + recevierId
 + dmContent
 + dmDate
+
+### DB 테이블 생성 스크립트
+```
+CREATE DATABASE whiteBoard;
+USE whiteBoard;
+
+CREATE TABLE member(
+  id varchar(50) primary key,
+  password varchar(50) not null,
+  name varchar(20) not null,
+  birth varchar(20) not null,
+	gender varchar(10) not null,
+	grade varchar(20) not null
+);
+
+CREATE TABLE post(
+  postNum int(10) primary key auto_increment,
+  postId varchar(50) not null,
+  postTitle varchar(100) not null,
+  postContent varchar(1000) not null,
+  postDate date,
+  postView varchar(20) not null,
+   FOREIGN KEY (postId) REFERENCES member(id) on delete cascade
+);
+
+CREATE TABLE postReaction(
+	postNum int(10)
+	reactionLike int(20) not null,
+	reactionDislike int(20) not null,
+	FOREIGN KEY (postNum) REFERENCES post(postNum) on delete cascade
+);
+CREATE TABLE directMessage(
+   dmNum int(10) primary key auto_increment,
+   senderId varchar(50),
+   receiverId varchar(50) not null,
+   dmContent varchar(100) not null,
+   dmDate date,
+   FOREIGN KEY (receiverID) REFERENCES member(id) on delete cascade
+);
+```
+### 릴레이션 스키마
 
