@@ -82,4 +82,3 @@ CREATE TABLE directMessage(
 );
 ```
 ### 릴레이션 스키마
-![poster](./image.png)
