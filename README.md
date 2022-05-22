@@ -27,11 +27,13 @@
 + postDate
 + postView
 3. __반응 정보 테이블__
++ postNum
 + reactionLike
 + reactionDislike
-4. __쪽지 정보 테이블__
-+ noteNUm
+5. __쪽지 정보 테이블__
++ dmNum
 + senderId
-+ RecieverId
-+ noteContent
-+ noteDate
++ recevierId
++ dmContent
++ dmDate
+
